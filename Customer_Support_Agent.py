@@ -4,8 +4,12 @@ import pathlib, os, re, json
 from openai import OpenAI
 
 # --- OpenAI API Setup ---
-KEY_PATH = pathlib.Path(r"C:\Users\fayab\Desktop\AI\GENAI\API_Keys\OPENAI_API_KEY.txt")
-os.environ["OPENAI_API_KEY"] = KEY_PATH.read_text().strip()
+# KEY_PATH = pathlib.Path(r"C:\Users\fayab\Desktop\AI\GENAI\API_Keys\OPENAI_API_KEY.txt")
+# os.environ["OPENAI_API_KEY"] = KEY_PATH.read_text().strip()
+
+# Load OpenAI API key from Streamlit secrets
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
 client = OpenAI()
 
 # --- Orders ---
